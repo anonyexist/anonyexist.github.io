@@ -19,7 +19,8 @@
   "scripts": {
     "build": "gulp build",
     "prettier": "prettier --write ./**/*.{js,json,md,mjs,yml}",
-    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+    "test": "gulp archive && mocha --reporter spec --timeout 5000",
+
   },
   "devDependencies": {
     "archiver": "^7.0.0",
@@ -58,3 +59,4 @@
     "README.md"
   ]
 }
+

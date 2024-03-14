@@ -15,7 +15,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <title></title>
-  <link rel="stylesheet" href="css/style.css">
   <meta name="description" content="">
 
   <!-- Meta tags for social media sharing -->
@@ -25,10 +24,10 @@
   <meta property="og:image" content="">
 
   <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="favicon.ico">
-  <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon" sizes="32x32">
 
   <!-- Manifest file for PWA -->
   <link rel="manifest" href="site.webmanifest">
@@ -40,13 +39,20 @@
   <style>
     .rainbow-text {
       display: inline-block;
-      background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+      background-image: linear-gradient(to right, yellow, orange, red);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .solana-text {
+      display: inline-block;
+      background-image: linear-gradient(to right, rgb(150, 102, 226), rgb(51, 203, 184), rgb(22, 233, 172), rgb(97, 156, 204), rgb(208, 43, 250), rgb(147, 105, 225), rgb(114, 139, 211));
       -webkit-background-clip: text;
       color: transparent;
     }
 
     body {
-      background-color: rgb(12, 212, 212);
+      background-color: rgb(16, 5, 166);
       height: 100vh;
       width: 100%;
       margin: 0;
@@ -62,14 +68,27 @@
     .chicken-heading {
       font-size: 1.8em;
     }
+
+     /* Picture grid styles */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+      gap: 1px; /* Reduced gap between grid items */
+    }
+    .grid-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px; /* Padding around grid items */
+      margin: -20px; /* Negative margin to reduce gap further */
+    }
+    .grid-item img {
+      width: 55%; /* Ensure images fill the grid item's width */
+      height: 55%; /* Automatically adjust height while maintaining aspect ratio */
+    }
+
   </style>
 
-  <!-- Custom JavaScript -->
-  <script>
-    $(document).ready(function () {
-      // Your JavaScript code here
-    });
-  </script>
 </head>
 
 <body>
@@ -77,8 +96,7 @@
   <div class="container-fluid" id="chicken-heading">
     <div class="row">
       <div class="col text-center mt-5">
-        <h3 class="mx-1 chicken-heading">chicken head on <span class="rainbow-text">solana</span></h3>
-        <h3 id="tender" class="mx-1" style="font-size: 24px; color: #ff0505;">$tendy</h3>
+        <h3 class="mx-1 chicken-heading" style="color: #ffffff;">chicken head on <span class="solana-text">solana</span></h3>
       </div>
     </div>
   </div>
@@ -100,21 +118,48 @@
     <source src="chickensound.mp3" type="audio/mp3">
   </audio>
 
+  <div class="container-fluid" id="bottom-text">
+    <div class="row">
+      <div class="col text-center mt-2">
+        <h3 class="mx-1 chicken-heading"><span class="rainbow-text">$gobble</span></h3>
+      </div>
+    </div>
+  </div>
+
   <div class="container-fluid">
     <div class="row mt-3">
       <div class="col text-center">
-        <a href="https://t.me/+rvWDjhKsnHE5MTE5">
-        <button class="btn btn-danger">telegram</button>
-      </a>
-        <a href="https://twitter.com/chickengogobble">
-        <button class="btn btn-danger">tweeter</button>
+        <a href="https://t.me/+rvWDjhKsnHE5MTE5" target="_blank">
+          <button class="btn btn-danger mr-3" style="width: 100px;">telegram</button>
+        </a>
+        <a href="https://twitter.com/chickengogobble" target="_blank">
+          <button class="btn btn-danger mr-3" style="width: 100px;">twitter</button>
+        </a>
+        <a href="https://dexscreener.com" target="_blank">
+          <button class="btn btn-danger" style="width: 100px;">chart</button>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Your custom JavaScript file -->
-  <script src="js/app.js"></script>
+  <!-- Picture Grid -->
+  <div class="container-fluid">
+    <div class="row mt-1">
+      <div class="col">
+        <div class="grid-container">
+          <div class="grid-item">
+            <img src="https://m.media-amazon.com/images/I/81u0ubIa9GL._AC_UF1000,1000_QL80_.jpg" alt="Image 1">
+          </div>
+          <div class="grid-item">
+            <img src="https://i.pinimg.com/736x/c1/0f/3a/c10f3a391a1233f6763b2bc691ff0184.jpg" alt="Image 2">
+          </div>
+          <div class="grid-item">
+            <img src="https://i.pinimg.com/474x/49/92/ca/4992ca4b321fd4191231e67f51cd0700.jpg" alt="Image 3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 

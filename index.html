@@ -37,7 +37,6 @@
 
   <!-- Custom CSS -->
   <style>
-
     .bold {
       font-weight: bold;
     }
@@ -45,19 +44,6 @@
     .sized {
       font-size: 40px;
       color: rgb(208, 255, 0);
-    }
-
-    .how-buy {
-      width: 90%;
-      max-width: 500px;
-      border: 15px solid #ffffff;
-      background-color: #dd271a;
-      padding: 20px;
-      margin: 20px auto; /* Centering the element horizontally */
-      font-family: 'Courier New', Courier, monospace;
-      color: white;
-      font-weight: 100;
-      font-size: 25px;
     }
 
     .rainbow-text {
@@ -75,11 +61,14 @@
     }
 
     body {
-      background-color: rgb(16, 5, 166);
-      height: 100vh;
-      width: 100%;
+      background-image: url('https://media.giphy.com/media/XDG5bxiwjGksyfLMoX/giphy.gif');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center bottom; /* Adjusted to show more of the bottom */
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      padding: 0;
+      height: 100vh;
     }
 
     /* Hide audio controls */
@@ -90,6 +79,7 @@
     /* Adjusted font size for "chicken head on solana" */
     .chicken-heading {
       font-size: 5em;
+      line-height: 2; /* Added to prevent cutting off the "g" */
     }
 
     /* Media queries for mobile responsiveness */
@@ -99,8 +89,37 @@
         font-size: 20px;
         padding: 15px;
       }
+      
+      #popupButton {
+      font-size: 100px;
+      padding: 50px; /* Increased padding */
+      margin-bottom: 40px; /* Increased margin bottom */
     }
 
+    }
+
+    #bottom-text {
+      font-size: 15px;
+    }
+
+    /* Popup content */
+    .popup-content {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #dd271a;
+      padding: 20px;
+      border: 15px solid #ffffff;
+      max-width: auto;
+      max-height: 600px;
+      font-family: 'Courier New', Courier, monospace;
+      color: white;
+      font-weight: 100;
+      font-size: 25px;
+      z-index: 9999;
+    }
   </style>
 
 </head>
@@ -150,7 +169,7 @@
 
   <div class="container-fluid" id="bottom-text">
     <div class="row">
-      <div class="col text-center mt-2">
+      <div class="col text-center mt-2 mb-2">
         <h3 class="mx-1 chicken-heading"><span class="rainbow-text bold">$gobble</span></h3>
       </div>
     </div>
@@ -158,21 +177,43 @@
 
 
   <div class="container-fluid">
-    <div class="row mt-3">
+    <div class="row mt-3 mb-5">
       <div class="col text-center">
-        <div class="how-buy">
-          <!-- Content inside the shadow box -->
-          <p class="bold mt-3">Create a wallet:</p>
-          <p>Download Phantom wallet from the App Store or Google Play</p>
-          <p class="bold">Buy Solana:<br></p>
-          <p>Buy directly from Phantom or send from an exchange like Coinbase or Binance</p>
-          <p class="bold">Connect to Raydium:<br></p>
-          <p>In your Phantom wallet, navigate to the browser and visit raydium.io. Paste $gobble's contract address into Raydium. SWAP!</p>
-          <p class="bold sized">CLUCK ON</p>
+        <!-- Button to open pop-up -->
+        <button id="popupButton" class="btn btn-danger">how buy??</button>
+        <!-- Pop-up content -->
+        <div id="popupContent" class="popup-content">
+          <!-- Content inside the pop-up -->
+          <div class="how-buy">
+            <p class="bold mt-3">Create a wallet:</p>
+            <p>Download Phantom wallet from the App Store or Google Play</p>
+            <p class="bold">Buy Solana:<br></p>
+            <p>Buy directly from Phantom or send from an exchange like Coinbase or Binance</p>
+            <p class="bold">Connect to Raydium:<br></p>
+            <p>In your Phantom wallet, navigate to the browser and visit raydium.io. Paste $gobble's contract address into Raydium. SWAP!</p>
+            <p class="bold sized">CLUCK ON</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- JavaScript for pop-up functionality -->
+  <script>
+    $(document).ready(function() {
+      // Open pop-up when button is clicked
+      $("#popupButton").click(function() {
+        $("#popupContent").fadeIn();
+      });
+
+      // Close pop-up when clicked outside of it
+      $(document).click(function(event) {
+        if (!$(event.target).closest("#popupContent, #popupButton").length) {
+          $("#popupContent").fadeOut();
+        }
+      });
+    });
+  </script>
 
 </body>
 

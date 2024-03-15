@@ -79,7 +79,7 @@
     /* Adjusted font size for "chicken head on solana" */
     .chicken-heading {
       font-size: 5em;
-      line-height: 2; /* Added to prevent cutting off the "g" */
+      line-height: 1.2; /* Adjusted line height */
     }
 
     /* Media queries for mobile responsiveness */
@@ -89,13 +89,23 @@
         font-size: 20px;
         padding: 15px;
       }
-      
-      #popupButton {
-      font-size: 100px;
-      padding: 50px; /* Increased padding */
-      margin-bottom: 40px; /* Increased margin bottom */
-    }
 
+      #popupButton {
+        font-size: 30px;
+        padding: 20px 40px; /* Adjusted padding */
+        margin-bottom: 20px; /* Increased margin bottom */
+      }
+
+      .btn-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn-container .btn {
+        margin: 5px;
+        width: calc(33.33% - 10px); /* Adjusted button width with margin */
+      }
     }
 
     #bottom-text {
@@ -120,13 +130,19 @@
       font-size: 25px;
       z-index: 9999;
     }
+
+    #popupButton {
+      font-size: 30px;
+      padding: 20px 40px; /* Adjusted padding */
+      margin-bottom: 40px; /* Increased margin bottom */
+    }
   </style>
 
 </head>
 
 <body>
 
-  <div class="container-fluid">
+  <div class="container-fluid btn-container">
     <div class="row mt-5">
       <div class="col text-center">
         <a href="https://t.me/+rvWDjhKsnHE5MTE5" target="_blank">
@@ -177,7 +193,7 @@
 
 
   <div class="container-fluid">
-    <div class="row mt-3 mb-5">
+    <div class="row mt-3">
       <div class="col text-center">
         <!-- Button to open pop-up -->
         <button id="popupButton" class="btn btn-danger">how buy??</button>

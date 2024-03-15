@@ -88,6 +88,8 @@
         width: 90%;
         font-size: 20px;
         padding: 15px;
+        margin-left: auto; /* Adjusted margin to center the pop-up */
+        margin-right: auto; /* Adjusted margin to center the pop-up */
       }
 
       #popupButton {
@@ -105,6 +107,10 @@
       .btn-container .btn {
         margin: 5px;
         width: calc(33.33% - 10px); /* Adjusted button width with margin */
+      }
+
+      .popup-content {
+        max-width: 90%; /* Adjusted max-width for the pop-up */
       }
     }
 
@@ -130,30 +136,20 @@
       font-size: 25px;
       z-index: 9999;
     }
-
-    #popupButton {
-      font-size: 30px;
-      padding: 20px 40px; /* Adjusted padding */
-      margin-bottom: 40px; /* Increased margin bottom */
-    }
   </style>
 
 </head>
 
 <body>
 
-  <div class="container-fluid btn-container">
+  <div class="container-fluid">
     <div class="row mt-5">
       <div class="col text-center">
-        <a href="https://t.me/+rvWDjhKsnHE5MTE5" target="_blank">
-          <button class="btn btn-danger mr-3" style="width: 200px;">telegram</button>
-        </a>
-        <a href="https://twitter.com/chickengogobble" target="_blank">
-          <button class="btn btn-danger mr-3" style="width: 200px;">twitter</button>
-        </a>
-        <a href="https://dexscreener.com" target="_blank">
-          <button class="btn btn-danger" style="width: 200px;">chart</button>
-        </a>
+        <div class="btn-container">
+          <a href="https://t.me/+rvWDjhKsnHE5MTE5" target="_blank" class="btn btn-danger mr-3">telegram</a>
+          <a href="https://twitter.com/chickengogobble" target="_blank" class="btn btn-danger mr-3">twitter</a>
+          <a href="https://dexscreener.com" target="_blank" class="btn btn-danger">chart</a>
+        </div>
       </div>
     </div>
   </div>

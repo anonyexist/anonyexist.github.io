@@ -38,29 +38,27 @@
   <!-- Custom CSS -->
   <style>
 
-    
+    .bold {
+      font-weight: bold;
+    }
 
-.bold {
-  font-weight:bold;
-}
+    .sized {
+      font-size: 40px;
+      color: rgb(208, 255, 0);
+    }
 
-.sized {
-  font-size: 40px;
-  color: rgb(208, 255, 0);
-}
-
-
-.how-buy {
-    width: 500px;
-    border: 15px solid #ffffff;
-    background-color: #dd271a;
-    padding: 20px;
-    margin: 20px auto; /* Centering the element horizontally */
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-    font-weight: 100;
-    font-size: 25px;
-}
+    .how-buy {
+      width: 90%;
+      max-width: 500px;
+      border: 15px solid #ffffff;
+      background-color: #dd271a;
+      padding: 20px;
+      margin: 20px auto; /* Centering the element horizontally */
+      font-family: 'Courier New', Courier, monospace;
+      color: white;
+      font-weight: 100;
+      font-size: 25px;
+    }
 
     .rainbow-text {
       display: inline-block;
@@ -94,11 +92,21 @@
       font-size: 5em;
     }
 
+    /* Media queries for mobile responsiveness */
+    @media (max-width: 768px) {
+      .how-buy {
+        width: 90%;
+        font-size: 20px;
+        padding: 15px;
+      }
+    }
+
   </style>
 
 </head>
 
 <body>
+
   <div class="container-fluid">
     <div class="row mt-5">
       <div class="col text-center">
@@ -157,32 +165,14 @@
           <p class="bold mt-3">Create a wallet:</p>
           <p>Download Phantom wallet from the App Store or Google Play</p>
           <p class="bold">Buy Solana:<br></p>
-            <p>Buy directly from Phantom or send from an exchange like Coinbase or Binance</p>
-            <p class="bold">Connect to Raydium:<br></p>
-            <p>In your Phantom wallet, navigate to the browser and visit raydium.io. Paste $gobble's contract address into Raydium. SWAP!</p>
-            <p class="bold sized">CLUCK ON</p>
+          <p>Buy directly from Phantom or send from an exchange like Coinbase or Binance</p>
+          <p class="bold">Connect to Raydium:<br></p>
+          <p>In your Phantom wallet, navigate to the browser and visit raydium.io. Paste $gobble's contract address into Raydium. SWAP!</p>
+          <p class="bold sized">CLUCK ON</p>
         </div>
       </div>
     </div>
   </div>
-  
-
-<!--
-  <div class="container-fluid">
-    <div class="row mt-3">
-      <div class="col text-center">
-        <a href="chickengenpage.js" target="_blank">
-          <button class="btn btn-primary mr-3" style="width: auto;">chicken generator</button>
-        </a>
-        <a href="https://twitter.com/chickengogobble" target="_blank">
-          <button class="btn btn-primary mr-3" style="width: autopx;">chickenfy it</button>
-        </a>
-      </div>
-    </div>
-  </div>
-  -->
-
-</div>
 
 </body>
 

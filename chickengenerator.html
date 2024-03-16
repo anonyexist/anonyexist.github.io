@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chicken Generator</title>
+  <style>
+    #container {
+      width: 400px;
+      height: 400px;
+      border: 2px dashed #ccc;
+      position: relative;
+      overflow: hidden;
+    }
+    #defaultImage {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      left: 50px;
+      top: 50px;
+      cursor: move;
+    }
+    .control {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: black;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1;
+    }
+    #resizeControl {
+      bottom: -10px;
+      right: -10px;
+      cursor: nwse-resize; /* Resize cursor */
+    }
+    #rotateControl {
+      top: -10px;
+      right: calc(50% - 10px);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chicken Generator</h1>
+  <div id="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <!-- Default image that can be dragged -->
+    <img id="defaultImage" src="default_chicken.png" draggable="true" ondragstart="drag(event)" alt="Default Chicken">
+    <!-- Controls for resizing and rotating -->
+    <div class="control" id="resizeControl"></div>
+    <div class="control" id="rotateControl">&#8593;</div>
+  </div>
+  <script>
+    let defaultImage = document.getElementById("defaultImage");
+    let container = document.getElementById("container");
+    let resizeControl = document.getElementById("resizeControl");
+    let rotateControl = document.getElementById("rotateControl");
+    let offsetX, offsetY, startX, startY, startWidth, startHeight, startRotation;
+
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function drag(event) {
+      event.dataTransfer.setData("text", event.target.id);
+      offsetX = event.clientX - parseInt(window.getComputedStyle(defaultImage).left);
+      offsetY = event.clientY - parseInt(window.getComputedStyle(defaultImage).top);
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      let data = event.dataTransfer.getData("text");
+      let draggedElement = document.getElementById(data);
+      container.appendChild(draggedElement);
+      draggedElement.style.left = (event.clientX - offsetX - container.getBoundingClientRect().left) + "px";
+      draggedElement.style.top = (event.clientY - offsetY - container.getBoundingClientRect().top) + "px";
+    }
+
+    defaultImage.addEventListener('mousedown', function(event) {
+      offsetX = event.clientX - parseInt(window.getComputedStyle(defaultImage).left);
+      offsetY = event.clientY - parseInt(window.getComputedStyle(defaultImage).top);
+      document.addEventListener('mousemove', move);
+      document.addEventListener('mouseup', stopMove);
+    });
+
+    function move(event) {
+      defaultImage.style.left = (event.clientX - offsetX - container.getBoundingClientRect().left) + "px";
+      defaultImage.style.top = (event.clientY - offsetY - container.getBoundingClientRect().top) + "px";
+    }
+
+    function stopMove() {
+      document.removeEventListener('mousemove', move);
+      document.removeEventListener('mouseup', stopMove);
+    }
+
+    resizeControl.addEventListener('mousedown', function(event) {
+      event.preventDefault();
+      startX = event.clientX;
+      startY = event.clientY;
+      startWidth = parseInt(window.getComputedStyle(defaultImage).width);
+      startHeight = parseInt(window.getComputedStyle(defaultImage).height);
+      document.addEventListener('mousemove', resize);
+      document.addEventListener('mouseup', stopResize);
+    });
+
+    function resize(event) {
+      let widthChange = event.clientX - startX;
+      let heightChange = event.clientY - startY;
+      let newWidth = startWidth + widthChange;
+      let newHeight = startHeight + heightChange;
+      if (newWidth > 0 && newHeight > 0) {
+        defaultImage.style.width = newWidth + 'px';
+        defaultImage.style.height = newHeight + 'px';
+      }
+    }
+
+    function stopResize() {
+      document.removeEventListener('mousemove', resize);
+      document.removeEventListener('mouseup', stopResize);
+    }
+
+    rotateControl.addEventListener('click', function(event) {
+      let rotation = parseInt(defaultImage.style.transform.replace('rotate(', '').replace('deg)', ''), 10) || 0;
+      defaultImage.style.transform = 'rotate(' + (rotation + 45) + 'deg)';
+    });
+  </script>
+</body>
+</html>

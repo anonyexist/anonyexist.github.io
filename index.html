@@ -79,34 +79,34 @@
        
         <button id="popupButton" class="btn btn-danger">how buy??</button>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Function to show the popup
-                function showPopup() {
-                    fetch('popup.html')
-                        .then(response => response.text())
-                        .then(data => {
-                            document.body.insertAdjacentHTML('beforeend', data);
-                            document.getElementById('popupContent').style.display = 'block';
-                        })
-                        .catch(error => console.error('Error fetching popup:', error));
-                }
-    
-                // Event listener for the button
-                document.getElementById('popupButton').addEventListener('click', function() {
-                    showPopup();
-                });
-    
-                // Close popup when clicking outside
-                document.addEventListener('click', function(event) {
-                    const popupContent = document.getElementById('popupContent');
-                    if (!event.target.closest('#popupContent, #popupButton') && popupContent) {
-                        popupContent.parentNode.removeChild(popupContent);
-                    }
-                });
-            });
-        </script>
+       
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Function to show the popup
+          function showPopup() {
+              fetch('popup.html')
+                  .then(response => response.text())
+                  .then(data => {
+                      document.body.insertAdjacentHTML('beforeend', data);
+                      document.getElementById('popupContent').style.display = 'block';
+                  })
+                  .catch(error => console.error('Error fetching popup:', error));
+          }
 
+          // Event listener for the button
+          document.getElementById('popupButton').addEventListener('click', function() {
+              showPopup();
+          });
+
+          // Close popup when clicking outside
+          document.addEventListener('click', function(event) {
+              const popupContent = document.getElementById('popupContent');
+              if (!event.target.closest('#popupContent, #popupButton') && popupContent) {
+                  popupContent.parentNode.removeChild(popupContent);
+              }
+          });
+      });
+  </script>
 </body>
 
 </html>

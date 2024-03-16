@@ -1,0 +1,104 @@
+  .bold {
+    font-weight: bold;
+  }
+
+  .sized {
+    font-size: 40px;
+    color: rgb(208, 255, 0);
+  }
+
+  .rainbow-text {
+    display: inline-block;
+    background-image: linear-gradient(to right, rgb(0, 225, 255), rgb(53, 167, 182), rgb(0, 17, 255));
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .solana-text {
+    display: inline-block;
+    background-image: linear-gradient(to right, rgb(150, 102, 226), rgb(51, 203, 184), rgb(22, 233, 172), rgb(97, 156, 204), rgb(208, 43, 250), rgb(147, 105, 225), rgb(114, 139, 211));
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  body {
+    background-image: url('https://media.giphy.com/media/XDG5bxiwjGksyfLMoX/giphy.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center bottom; /* Adjusted to show more of the bottom */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  }
+
+  /* hide audidioio*/
+  audio {
+    display: none;
+  }
+
+  .chicken-heading {
+    font-size: 5em;
+    line-height: 1.2; /* Adjusted line height */
+  }
+
+  /* mobel responsiveness */
+  @media (max-width: 768px) {
+    .how-buy {
+      width: auto;
+      height: auto;
+      font-size: 20px;
+      padding: 15px;
+      margin-left: auto; 
+      margin-right: auto; 
+    }
+
+    #popupButton {
+      font-size: 30px;
+      padding: 20px 40px; 
+      margin-bottom: 20px; 
+    }
+
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-container .btn {
+      margin: 5px;
+      width: calc(33.33% - 10px); 
+    }
+
+    .popup-content {
+      max-width: 90%; 
+    }
+  }
+
+  #bottom-text {
+    font-size: 15px;
+  }
+
+  /* Popup content */
+  .popup-content {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #dd271a;
+    padding: 20px;
+    border: 15px solid #ffffff;
+    max-width: auto;
+    max-height: 600px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: 100;
+    font-size: 25px;
+    z-index: 9999;
+  }
+
+  .chicken-ticker {
+    font-size: 75px;
+    line-height: normal;
+  }
